@@ -25,7 +25,7 @@ module.exports = {
   eligibilitySchema: (data) => {
     const schema = joi.object({
       numeroDoDocumento: joi.alternatives().try(joi.string().length(11), joi.string().length(14)),
-      tipoDeConexao: joi.string().valid('monofasico', 'bifasico', 'trifasico'),
+      tipoDeConexao: joi.string().valid('monofasica', 'bifasica', 'trifasica'),
       classeDeConsumo: joi.string()
         .valid('residencial', 'industrial', 'comercial', 'rural', 'poderPublico'),
       modalidadeTarifaria: joi.string().valid('azul', 'branca', 'verde', 'convencional'),
