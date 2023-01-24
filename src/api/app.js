@@ -1,7 +1,7 @@
 require('express-async-errors');
 const express = require('express');
 const cors = require('cors');
-const errorMiddleware = require('../api/middlewares/error');
+const errorMiddleware = require('./middlewares/error');
 const router = require('./routes/eligibility');
 
 const app = express();
