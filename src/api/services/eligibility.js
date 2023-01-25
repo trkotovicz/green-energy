@@ -1,5 +1,13 @@
 const { validateCpf, validateCnpj, eligibilitySchema } = require('../utils/validations');
 
+const validateData = (data) => {
+  const { numeroDoDocumento } = data;
+  if (String(numeroDoDocumento).length === 11) validateCpf(numeroDoDocumento);
+  if (String(numeroDoDocumento).length === 14) validateCnpj(numeroDoDocumento);
+  eligibilitySchema(data);
+  return true;
+};
+
 const classeConsumo = (classe) => {
   switch (classe.toLowerCase()) {
     case 'comercial':
@@ -47,13 +55,7 @@ const reducaoCO2 = (consumo) => {
 };
 
 module.exports = {
-  teste: (data) => {
-    const { numeroDoDocumento } = data;
-    if (String(numeroDoDocumento).length === 11) validateCpf(numeroDoDocumento);
-    if (String(numeroDoDocumento).length === 14) validateCnpj(numeroDoDocumento);
-    eligibilitySchema(data);
-    return data;
-  },
+
 };
 
 const arrayHistorico = [3878, 9760, 5976, 2797, 2481, 5731, 7538, 4392, 7859, 4160, 6941, 4597];
