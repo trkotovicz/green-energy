@@ -21,7 +21,7 @@ const classeConsumo = (classe) => {
   }
 };
 
-const modalidadeTarifaria = (modalidade) => {
+const modalidadeTarifa = (modalidade) => {
   switch (modalidade.toLowerCase()) {
     case 'convencional':
       return true;
@@ -54,13 +54,31 @@ const reducaoCO2 = (consumo) => {
   return (consumoAnual * 0.084).toFixed(2);
 };
 
-module.exports = {
-
+const verifyElegibility = (data) => {
+  validateData(data);
+  const { tipoDeConexao, classeDeConsumo, modalidadeTarifaria, historicoDeConsumo } = data;
+  const classe = classeConsumo(classeDeConsumo);
+  const modalidade = modalidadeTarifa(modalidadeTarifaria);
+  const consumo = consumoMinimo(historicoDeConsumo, tipoDeConexao);
+  return [classe, modalidade, consumo];    
 };
 
-const arrayHistorico = [3878, 9760, 5976, 2797, 2481, 5731, 7538, 4392, 7859, 4160, 6941, 4597];
-console.log(classeConsumo('rural'));
-console.log(modalidadeTarifaria('azul'));
-console.log(mediaConsumo(arrayHistorico));
-console.log(consumoMinimo(arrayHistorico, 'trifasica'));
-console.log(reducaoCO2(arrayHistorico));
+const isElegible = (data) => {
+  const results = verifyElegibility(data);
+  
+  const razoesDeInelegibilidade = [];
+  results.filter((elemento) => {
+    if (elemento !== true) return razoesDeInelegibilidade.push(elemento);
+    return false;
+  });
+  if (razoesDeInelegibilidade.length) return { elegivel: false, razoesDeInelegibilidade };
+
+  const { historicoDeConsumo } = data;
+  const economiaCO2 = reducaoCO2(historicoDeConsumo);
+  return {
+    elegivel: true,
+    economiaAnualDeCO2: Number(economiaCO2),
+  };
+};
+
+module.exports = { isElegible };
