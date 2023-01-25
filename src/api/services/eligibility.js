@@ -41,6 +41,11 @@ const consumoMinimo = (historico, conexao) => {
   return 'Consumo muito baixo para tipo de conexão';
 };
 
+const reducaoCO2 = (consumo) => {
+  const consumoAnual = mediaConsumo(consumo) * 12;
+  return (consumoAnual * 0.084).toFixed(2);
+};
+
 module.exports = {
   teste: (data) => {
     const { numeroDoDocumento } = data;
@@ -56,3 +61,4 @@ console.log(classeConsumo('rural'));
 console.log(modalidadeTarifaria('azul'));
 console.log(mediaConsumo(arrayHistorico));
 console.log(consumoMinimo(arrayHistorico, 'trifasica'));
+console.log(reducaoCO2(arrayHistorico));
