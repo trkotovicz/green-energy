@@ -1,11 +1,10 @@
-
-enum tipoConexao {
+export enum tipoConexao {
   monofasica = 'monofasica',
   bifasica = 'bifasica',
   trifasica = 'trifasica'
 }
 
-enum classeConsumo {
+export enum classeDeConsumo {
   residencial = 'residencial',
   industrial = 'industrial',
   comercial = 'comercial',
@@ -13,17 +12,17 @@ enum classeConsumo {
   poderPublico = 'poderPublico'
 }
 
-enum modalidadeTarifa {
+export enum modalidadeTarifaria {
   azul = 'azul',
   branca = 'branca',
   verde = 'verde',
   convencional = 'convencional'
 }
 
-export default interface IEligibility {
+export interface IEligibility {
   numeroDoDocumento: string,
   tipoDeConexao: tipoConexao,
-  classeDeConsumo: classeConsumo,
-  modalidadeTarifaria: modalidadeTarifa,
+  classeDeConsumo: classeDeConsumo,
+  modalidadeTarifaria: modalidadeTarifaria,
 	historicoDeConsumo: Array<number>
 }
