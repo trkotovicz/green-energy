@@ -1,5 +1,5 @@
 const { StatusCodes } = require('http-status-codes');
-const { isElegible } = require('../services/eligibility');
+const { isElegible } = require('../services/Eligibility');
 
 module.exports = {
   eligibility: (req, res) => {

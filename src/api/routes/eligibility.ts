@@ -1,8 +1,8 @@
-const { Router } = require('express');
-const eligibilityController = require('../controllers/eligibility');
+import { Router } from 'express';
+import { eligibilityController } from './main';
 
-const router = Router();
+const eligibilityRouter = Router();
 
-router.post('/lemon', eligibilityController.eligibility);
+eligibilityRouter.post('/lemon', eligibilityController.eligibility);
 
-export default router;
+export default eligibilityRouter;

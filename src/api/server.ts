@@ -3,14 +3,14 @@ import 'express-async-errors';
 import express from 'express';
 import cors from 'cors';
 import errorHandler from './middlewares/error';
-import router from './routes/eligibility';
+import eligibilityRouter from './routes/Eligibility';
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-app.use(router);
+app.use(eligibilityRouter);
 
 app.use(errorHandler);
 

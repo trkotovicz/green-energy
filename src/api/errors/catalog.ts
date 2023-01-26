@@ -3,6 +3,8 @@ import { StatusCodes } from 'http-status-codes'
 export enum ErrorTypes {
   GenericError = 'GenericError',
   BadRequest = 'BadRequest',
+  InvalidFormatError = 'InvalidFormatError',
+  ValidationError = 'ValidationError'
 }
 
 interface ErrorResponseObject {
@@ -21,6 +23,14 @@ export const errorCatalog: ErrorCatalog = {
   },
   BadRequest: {
     message: 'Something wrong happend',
+    httpStatus: StatusCodes.BAD_REQUEST
+  },
+  InvalidFormatError: {
+    message: 'Invalid Format',
+    httpStatus: StatusCodes.BAD_REQUEST
+  },
+  ValidationError: {
+    message: 'Validation Error',
     httpStatus: StatusCodes.BAD_REQUEST
   },
 }
