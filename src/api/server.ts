@@ -2,7 +2,7 @@ import 'dotenv/config';
 import 'express-async-errors';
 import express from 'express';
 import cors from 'cors';
-import errorMiddleware from './middlewares/error';
+import errorHandler from './middlewares/error';
 import router from './routes/eligibility';
 
 const app = express();
@@ -12,7 +12,7 @@ app.use(cors());
 
 app.use(router);
 
-app.use(errorMiddleware);
+app.use(errorHandler);
 
 const PORT = process.env.APP_PORT ?? 3001;
 
