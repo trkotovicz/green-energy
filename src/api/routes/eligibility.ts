@@ -5,4 +5,4 @@ const router = Router();
 
 router.post('/lemon', eligibilityController.eligibility);
 
-module.exports = router;
+export default router;
