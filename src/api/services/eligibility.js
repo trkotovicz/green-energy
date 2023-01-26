@@ -81,4 +81,13 @@ const isElegible = (data) => {
   };
 };
 
-module.exports = { isElegible };
+module.exports = {
+  isElegible,
+  validateData,
+  classeConsumo,
+  modalidadeTarifa,
+  mediaConsumo,
+  consumoMinimo,
+  reducaoCO2,
+  verifyElegibility,
+};
