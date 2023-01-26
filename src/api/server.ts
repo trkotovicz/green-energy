@@ -1,8 +1,23 @@
-require('dotenv').config();
-const app = require('./app');
+import 'dotenv/config';
+import 'express-async-errors';
+import express from 'express';
+import cors from 'cors';
+import errorMiddleware from './middlewares/error';
+import router from './routes/eligibility';
 
-const PORT = process.env.APP_PORT || 3001;
+const app = express();
+
+app.use(express.json());
+app.use(cors());
+
+app.use(router);
+
+app.use(errorMiddleware);
+
+const PORT = process.env.APP_PORT ?? 3001;
 
 app.listen(PORT, () => {
   console.log(`Server is running at port ${PORT}`);
 });
+
+export default app;

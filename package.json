@@ -4,7 +4,7 @@
   "description": "Teste Técnico - Backend Lemon Energy - Elegibilidade",
   "scripts": {
     "test": "mocha tests/**/*.test.js --exit",
-    "start": "nodemon --watch src src/api/server.js"
+    "dev": "tsnd src/api/server.ts"
   },
   "keywords": [],
   "author": "Thais Kotovicz <thais_kotovicz@hotmail.com>",
