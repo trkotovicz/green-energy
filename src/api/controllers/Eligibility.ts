@@ -1,9 +1,12 @@
-const { StatusCodes } = require('http-status-codes');
-const { isElegible } = require('../services/Eligibility');
+import { Request, Response } from 'express'
+import { StatusCodes } from 'http-status-codes'
+import EligibilityService from '../services/Eligibility';
 
-module.exports = {
-  eligibility: (req, res) => {
-    const data = isElegible(req.body);
+export default class EligibilityController {
+  constructor(private eligibilityService: EligibilityService) {}
+
+  eligibility = (req: Request, res: Response) => {
+    const data = this.eligibilityService.isElegible(req.body);
     res.status(StatusCodes.OK).json(data);
-  },
-};
+  }
+}
