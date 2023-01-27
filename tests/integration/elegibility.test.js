@@ -1,6 +1,6 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const app = require('../../src/api/app');
+const app = require('../../src/api/server');
 const { dataSuccess, responseSuccess, dataFailure, responseFailure } = require('../mocks/eligibilityMocks');
 
 const { expect } = chai;
@@ -9,7 +9,8 @@ chai.use(chaiHttp);
 describe('Fazendo a requizição com o método POST em /lemon para verificar a elegibilidade do cliente', () => {
   describe('Em caso de cliente elegivel', () => {
     it('Retorna o status 200 e um json com as propriedades corretas', async () => {
-      const response = await chai.request(app).post('/lemon').send(dataSuccess);
+      const response = await req(app).post('/lemon').send(dataSuccess);
+      // const response = await chai.request(app).post('/lemon').send(dataSuccess);
 
       expect(response.status).to.be.equal(200);
       expect(response.body).to.haveOwnProperty('elegivel');
@@ -20,7 +21,8 @@ describe('Fazendo a requizição com o método POST em /lemon para verificar a e
 
   describe('Em caso de cliente não elegivel', () => {
     it('Retorna o status 200 e um json com as propriedades corretas', async () => {
-      const response = await chai.request(app).post('/lemon').send(dataFailure);
+      const response = await req(app).post('/lemon').send(dataFailure);
+      // const response = await chai.request(app).post('/lemon').send(dataFailure);
 
       expect(response.status).to.be.equal(200);
       expect(response.body).to.haveOwnProperty('elegivel');

@@ -62,7 +62,7 @@ const dataFailure = {
   ],
 };
 
-module.exports = {
+export {
   dataSuccess,
   dataFailure,
   historicoConsumo,

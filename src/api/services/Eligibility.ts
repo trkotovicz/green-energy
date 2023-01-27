@@ -2,7 +2,7 @@ import { IEligibility, tipoConexao, classeDeConsumo, modalidadeTarifaria } from 
 import { validateCpf, validateCnpj, eligibilitySchema } from '../utils/validations';
 
 export default class EligibilityService {
-  validateData = (data: IEligibility) => {
+  validateData(data: IEligibility) {
     const { numeroDoDocumento } = data;
     if (String(numeroDoDocumento).length === 11) validateCpf(numeroDoDocumento);
     if (String(numeroDoDocumento).length === 14) validateCnpj(numeroDoDocumento);
@@ -10,7 +10,7 @@ export default class EligibilityService {
     return true;
   };
   
-  classeConsumo = (classe: classeDeConsumo) => {
+  classeConsumo(classe: classeDeConsumo) {
     switch (classe.toLowerCase()) {
       case 'comercial':
         return true;
@@ -23,7 +23,7 @@ export default class EligibilityService {
     }
   };
   
-  modalidadeTarifa = (modalidade: modalidadeTarifaria) => {
+  modalidadeTarifa(modalidade: modalidadeTarifaria) {
     switch (modalidade.toLowerCase()) {
       case 'convencional':
         return true;
@@ -34,13 +34,13 @@ export default class EligibilityService {
     }
   };
   
-  mediaConsumo = (historico: Array<number>): string => {
+  mediaConsumo(historico: Array<number>): string {
     const tamanho = historico.length;
     const soma = historico.reduce((acc, curr) => acc + curr, 0);
     return (soma / tamanho).toFixed(2);
   };
   
-  consumoMinimo = (historico: Array<number>, conexao: tipoConexao) => {
+  consumoMinimo(historico: Array<number>, conexao: tipoConexao) {
     const media = this.mediaConsumo(historico);
     const minTiposConexao = {
       monofasica: 400,
@@ -51,12 +51,12 @@ export default class EligibilityService {
     return 'Consumo muito baixo para tipo de conexão';
   };
   
-  reducaoCO2 = (consumo: Array<number>) => {
+  reducaoCO2(consumo: Array<number>) {
     const consumoAnual = Number(this.mediaConsumo(consumo)) * 12;
     return (consumoAnual * 0.084).toFixed(2);
   };
   
-  verifyElegibility = (data: IEligibility) => {
+  verifyElegibility(data: IEligibility) {
     this.validateData(data);
     const { tipoDeConexao, classeDeConsumo, modalidadeTarifaria, historicoDeConsumo } = data;
     const classe = this.classeConsumo(classeDeConsumo);
@@ -65,7 +65,7 @@ export default class EligibilityService {
     return [classe, modalidade, consumo];    
   };
   
-  isElegible = (data: IEligibility) => {
+  isElegible(data: IEligibility) {
     const results = this.verifyElegibility(data);
     
     const razoesDeInelegibilidade: (string | boolean)[] = [];
