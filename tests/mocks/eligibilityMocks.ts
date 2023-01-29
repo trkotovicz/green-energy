@@ -1,73 +1,161 @@
-const historicoConsumo = [3878, 9760, 5976, 2797, 2481];
+import { classeDeConsumo, modalidadeTarifaria, tipoConexao } from "../../src/api/interfaces/IEligibility";
 
-const historicoConsumoInelegivel = [278, 760, 576, 797, 481];
+export const mock = {
+  historicoConsumo: [3878, 9760, 5976, 2797, 2481],  
+  historicoConsumoInelegivel: [278, 760, 576, 797, 481],
 
-const razoesDeInelegibilidade = [
-  'Classe de consumo não aceita',
-  'Modalidade tarifária não aceita',
-  'Consumo muito baixo para tipo de conexão',
-];
-
-const responseSuccess = {
-  elegivel: true,
-  economiaAnualDeCO2: 5553.24,
-};
-
-const responseFailure = {
-  elegivel: false,
   razoesDeInelegibilidade: [
     'Classe de consumo não aceita',
     'Modalidade tarifária não aceita',
     'Consumo muito baixo para tipo de conexão',
   ],
-};
 
-const dataSuccess = {
-  numeroDoDocumento: '46241772000116',
-  tipoDeConexao: 'bifasica',
-  classeDeConsumo: 'comercial',
-  modalidadeTarifaria: 'convencional',
-  historicoDeConsumo: [
-    3878,
-    9760,
-    5976,
-    2797,
-    2481,
-    5731,
-    7538,
-    4392,
-    7859,
-    4160,
-    6941,
-    4597,
-  ],
-};
+  classeConsumo: classeDeConsumo.comercial,
+  classeConsumoInelegivel: classeDeConsumo.rural,
 
-const dataFailure = {
-  numeroDoDocumento: '46241772000116',
-  tipoDeConexao: 'trifasica',
-  classeDeConsumo: 'rural',
-  modalidadeTarifaria: 'verde',
-  historicoDeConsumo: [
-    278,
-    760,
-    576,
-    297,
-    481,
-    531,
-    538,
-    492,
-    859,
-    160,
-  ],
-};
+  modalidadeTarifa: modalidadeTarifaria.convencional,
+  modalidadeTarifaInelegivel: modalidadeTarifaria.verde,
 
-export {
-  dataSuccess,
-  dataFailure,
-  historicoConsumo,
-  historicoConsumoInelegivel,
-  razoesDeInelegibilidade,
-  responseSuccess,
-  responseFailure,
-};
+  conexaoMonofasica: tipoConexao.monofasica,
+  conexaoTrifasica: tipoConexao.trifasica,
+
+  bodyFailure: {
+    numeroDoDocumento: '46241772000116',
+    tipoDeConexao: tipoConexao.trifasica,
+    classeDeConsumo: classeDeConsumo.rural,
+    modalidadeTarifaria: modalidadeTarifaria.verde,
+    historicoDeConsumo: [278]
+  },
+
+  dataSuccess: {
+    numeroDoDocumento: '46241772000116',
+    tipoDeConexao: tipoConexao.bifasica,
+    classeDeConsumo: classeDeConsumo.comercial,
+    modalidadeTarifaria: modalidadeTarifaria.convencional,
+    historicoDeConsumo: [
+      3878,
+      9760,
+      5976,
+      2797,
+      2481,
+      5731,
+      7538,
+      4392,
+      7859,
+      4160,
+      6941,
+      4597,
+    ],
+  },
+
+  responseSuccess: {
+    elegivel: true,
+    economiaAnualDeCO2: 5553.24,
+  },
+
+  dataFailure: {
+    numeroDoDocumento: '46241772000116',
+    tipoDeConexao: tipoConexao.trifasica,
+    classeDeConsumo: classeDeConsumo.rural,
+    modalidadeTarifaria: modalidadeTarifaria.verde,
+    historicoDeConsumo: [
+      278,
+      760,
+      576,
+      297,
+      481,
+      531,
+      538,
+      492,
+      859,
+      160,
+    ],
+  },
+
+  responseFailure: {
+    elegivel: false,
+    razoesDeInelegibilidade: [
+      'Classe de consumo não aceita',
+      'Modalidade tarifária não aceita',
+      'Consumo muito baixo para tipo de conexão',
+    ],
+  },
+}
+
+// const historicoConsumo = [3878, 9760, 5976, 2797, 2481];
+// const historicoConsumoInelegivel = [278, 760, 576, 797, 481];
+
+// const razoesDeInelegibilidade = [
+//   'Classe de consumo não aceita',
+//   'Modalidade tarifária não aceita',
+//   'Consumo muito baixo para tipo de conexão',
+// ];
+
+// const classeConsumo = classeDeConsumo.comercial;
+// const classeConsumoInelegivel = classeDeConsumo.rural;
+
+// const responseSuccess = {
+//   elegivel: true,
+//   economiaAnualDeCO2: 5553.24,
+// };
+
+// const responseFailure = {
+//   elegivel: false,
+//   razoesDeInelegibilidade: [
+//     'Classe de consumo não aceita',
+//     'Modalidade tarifária não aceita',
+//     'Consumo muito baixo para tipo de conexão',
+//   ],
+// };
+
+// const dataSuccess: IEligibility = {
+//   numeroDoDocumento: '46241772000116',
+//   tipoDeConexao: tipoConexao.bifasica,
+//   classeDeConsumo: classeDeConsumo.comercial,
+//   modalidadeTarifaria: modalidadeTarifaria.convencional,
+//   historicoDeConsumo: [
+//     3878,
+//     9760,
+//     5976,
+//     2797,
+//     2481,
+//     5731,
+//     7538,
+//     4392,
+//     7859,
+//     4160,
+//     6941,
+//     4597,
+//   ],
+// };
+
+// const dataFailure = {
+//   numeroDoDocumento: '46241772000116',
+//   tipoDeConexao: tipoConexao.trifasica,
+//   classeDeConsumo: classeDeConsumo.rural,
+//   modalidadeTarifaria: modalidadeTarifaria.verde,
+//   historicoDeConsumo: [
+//     278,
+//     760,
+//     576,
+//     297,
+//     481,
+//     531,
+//     538,
+//     492,
+//     859,
+//     160,
+//   ],
+// };
+
+// export {
+//   dataSuccess,
+//   dataFailure,
+//   historicoConsumo,
+//   historicoConsumoInelegivel,
+//   razoesDeInelegibilidade,
+//   responseSuccess,
+//   responseFailure,
+//   classeConsumo,
+//   classeConsumoInelegivel,
+// };
