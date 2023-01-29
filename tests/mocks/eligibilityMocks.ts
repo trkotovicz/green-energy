@@ -1,4 +1,4 @@
-import { classeDeConsumo, modalidadeTarifaria, tipoConexao } from "../../src/api/interfaces/IEligibility";
+import { classeDeConsumo, modalidadeTarifaria, tipoConexao } from "../../src/interfaces/IEligibility";
 
 export const mock = {
   historicoConsumo: [3878, 9760, 5976, 2797, 2481],  

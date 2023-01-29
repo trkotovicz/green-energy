@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import EligibilityService from '../../src/api/services/Eligibility';
+import EligibilityService from '../../src/services/Eligibility';
 import { mock } from '../mocks/eligibilityMocks';
 
 describe('Testa a função validateData', () => {

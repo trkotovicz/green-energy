@@ -1,20 +1,14 @@
 import { ErrorRequestHandler } from 'express';
 import { ValidationError } from 'joi';
-import { ZodError } from 'zod';
 import { errorCatalog, ErrorTypes } from '../errors/catalog';
 
 const errorHandler: ErrorRequestHandler = (
-  err: Error | ZodError,
+  err: Error,
   _req,
   res,
   _next
 ) => {
-  // o instanceof verifica se esse é erro é uma instância do ZodError
-  if (err instanceof ZodError) {
-    // se for nós sabemos que é um erro de validação e podemos usar o status 400 e a própria mensagem do zod para retornar a response
-    return res.status(400).json({ message: err.issues })
-  }
-  // mesma coisa acontece aqui com o Joi
+  // o instanceof verifica se esse é erro é uma instância do Joi
   if (err instanceof ValidationError) {
     return res.status(400).json(err.message)
   }

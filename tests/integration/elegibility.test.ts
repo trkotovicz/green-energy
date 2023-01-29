@@ -1,6 +1,6 @@
 import chai from'chai';
 import chaiHttp from'chai-http';
-import app from'../../src/api/server';
+import app from'../../src/server';
 import { mock } from'../mocks/eligibilityMocks';
 
 const { expect } = chai;
