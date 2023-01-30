@@ -17,8 +17,7 @@ Para os testes unitários e de integração, foi utilizado Mocha e Chai.
 
 1. Clone o repositório `git@github.com:trkotovicz/lemon-energy.git`.
 2. Na raíz do repositório, abra o terminal e rode o comando `npm run compose:up` e aguarde a alicação subir (esse passo pode demorar um pouco).
-3. Acesse o navegador no endereço `http://localhost:3000` para utilizar a aplicação.
-4. Para encerrar a aplicação, rode o comando `npm run compose:down`.
+3. Para encerrar a aplicação, rode o comando `npm run compose:down`.
 
 ### Inicialização local 🖥
 
