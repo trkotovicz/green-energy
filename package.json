@@ -4,7 +4,9 @@
   "description": "Teste Técnico - Backend Lemon Energy - Elegibilidade",
   "scripts": {
     "test": "mocha --require ts-node/register tests/**/*.test.ts --exit",
-    "start": "tsnd src/server.ts"
+    "start": "tsnd src/server.ts",
+    "compose:up": "docker-compose up --build --detach",
+    "compose:down": "docker-compose down --remove-orphans"
   },
   "keywords": [],
   "author": "Thais Kotovicz <thais_kotovicz@hotmail.com>",
