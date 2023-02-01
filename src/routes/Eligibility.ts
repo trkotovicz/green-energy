@@ -1,9 +1,10 @@
 import { Router } from 'express';
+import { validateData } from '../middlewares/validateSchema';
 import { eligibilityController } from './main';
 
 const eligibilityRouter = Router();
 
-eligibilityRouter.post('/lemon', eligibilityController.eligibility);
+eligibilityRouter.post('/lemon', validateData, eligibilityController.eligibility);
 
 export default eligibilityRouter;
 

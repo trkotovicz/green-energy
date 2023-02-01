@@ -1,15 +1,6 @@
 import { IEligibility, tipoConexao, classeDeConsumo, modalidadeTarifaria } from '../interfaces/IEligibility';
-import { validateCpf, validateCnpj, eligibilitySchema } from '../utils/validations';
 
 export default class EligibilityService {
-  validateData(data: IEligibility) {
-    const { numeroDoDocumento } = data;
-    if (String(numeroDoDocumento).length === 11) validateCpf(numeroDoDocumento);
-    if (String(numeroDoDocumento).length === 14) validateCnpj(numeroDoDocumento);
-    eligibilitySchema(data);
-    return true;
-  };
-  
   classeConsumo(classe: classeDeConsumo) {
     switch (classe.toLowerCase()) {
       case 'comercial':
@@ -57,7 +48,6 @@ export default class EligibilityService {
   };
   
   verifyElegibility(data: IEligibility) {
-    this.validateData(data);
     const { tipoDeConexao, classeDeConsumo, modalidadeTarifaria, historicoDeConsumo } = data;
     const classe = this.classeConsumo(classeDeConsumo);
     const modalidade = this.modalidadeTarifa(modalidadeTarifaria);

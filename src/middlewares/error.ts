@@ -9,7 +9,7 @@ const errorHandler: ErrorRequestHandler = (
   _next
 ) => {
   // o instanceof verifica se esse é erro é uma instância do Joi
-  if (err instanceof ValidationError) {
+  if (err.message) {
     return res.status(400).json(err.message)
   }
   // aqui vamos fazer o cast da mensagem de erro para uma chave do Enum ErrorTypes

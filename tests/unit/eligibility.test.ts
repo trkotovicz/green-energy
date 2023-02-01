@@ -2,13 +2,6 @@ import { expect } from 'chai';
 import EligibilityService from '../../src/services/Eligibility';
 import { mock } from '../mocks/eligibilityMocks';
 
-describe('Testa a função validateData', () => {
-  it('Em caso de sucesso deve retornar true', () => {
-    const data = EligibilityService.prototype.validateData(mock.dataSuccess);
-    expect(data).to.be.equal(true);
-  });
-});
-
 describe('Testa a função classeConsumo', () => {
   describe('Em caso de sucesso', () => {
     it('Deve retornar true', () => {
