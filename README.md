@@ -1,10 +1,9 @@
-# Lemon Energy (Teste Backend) - Elegibilidade 🍋
+# Green Energy 🌿
 
-Aplicação desenvolvidada para a vaga de BackEnd da Lemon Energy. </br>
-Ela foi desenvolvida a fim de verificar se o cliente é elegível para fazer parte da Lemon, ou não.
+Serviço desenvolvidado a fim de verificar se o cliente é elegível para fazer parte da Green, ou não.
 
 ### Contexto:
-Nem todos os clientes que desejam fazer parte da Lemon podem ser aceitos no momento. Seja por razões regulatórias ou porque não vale a pena para o cliente ou para a Lemon ter essa empresa como cliente. No processo de aquisição de clientes, fazemos a checagem de elegibilidade da mesma, através dos dados contidos na conta de luz do cliente. Caso a empresa não seja elegível, precisamos explicitar os motivos para tal. Caso ela seja elegível, precisamos calcular também a projeção da quantidade de CO2 que ela deixaria de emitir caso usasse energia limpa.
+Nem todos os clientes que desejam fazer parte da Green podem ser aceitos no momento. Seja por razões regulatórias ou porque não vale a pena para o cliente ou para a Green ter essa empresa como cliente. No processo de aquisição de clientes, fazemos a checagem de elegibilidade da mesma, através dos dados contidos na conta de luz do cliente. Caso a empresa não seja elegível, precisamos explicitar os motivos para tal. Caso ela seja elegível, precisamos calcular também a projeção da quantidade de CO2 que ela deixaria de emitir caso usasse energia limpa.
 
 ## Ferramentas utilizadas
 
@@ -15,13 +14,13 @@ Para os testes unitários e de integração, foi utilizado Mocha e Chai.
 
 ### Inicialização via Docker 🐳
 
-1. Clone o repositório `git@github.com:trkotovicz/lemon-energy.git`.
+1. Clone o repositório `git@github.com:trkotovicz/green-energy-eligibility.git`.
 2. Na raíz do repositório, abra o terminal e rode o comando `npm run compose:up` e aguarde a alicação subir (esse passo pode demorar um pouco).
 3. Para encerrar a aplicação, rode o comando `npm run compose:down`.
 
 ### Inicialização local 🖥
 
-1. Clone o repositório `git@github.com:trkotovicz/lemon-energy.git`.
+1. Clone o repositório `git@github.com:trkotovicz/green-energy-eligibility.git`.
 2. Na raíz do repositório instale as dependências e inicialize o projeto com o comando `npm start`.
 3. Abra o navegador no endereço `http://localhost:3001/docs/#/` para testar a API.
 
