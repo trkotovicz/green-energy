@@ -14,13 +14,13 @@ Para os testes unitários e de integração, foi utilizado Mocha e Chai.
 
 ### Inicialização via Docker 🐳
 
-1. Clone o repositório `git@github.com:trkotovicz/green-energy-eligibility.git`.
+1. Clone o repositório `git@github.com:trkotovicz/green-energy.git`.
 2. Na raíz do repositório, abra o terminal e rode o comando `npm run compose:up` e aguarde a alicação subir (esse passo pode demorar um pouco).
 3. Para encerrar a aplicação, rode o comando `npm run compose:down`.
 
 ### Inicialização local 🖥
 
-1. Clone o repositório `git@github.com:trkotovicz/green-energy-eligibility.git`.
+1. Clone o repositório `git@github.com:trkotovicz/green-energy.git`.
 2. Na raíz do repositório instale as dependências e inicialize o projeto com o comando `npm start`.
 3. Abra o navegador no endereço `http://localhost:3001/docs/#/` para testar a API.
 
