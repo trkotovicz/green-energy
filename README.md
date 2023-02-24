@@ -1,6 +1,6 @@
 # Green Energy 🌿
 
-Serviço desenvolvidado a fim de verificar se o cliente é elegível para fazer parte da Green, ou não.
+Serviço desenvolvido a fim de verificar se o cliente é elegível para fazer parte da Green, ou não.
 
 ### Contexto:
 Nem todos os clientes que desejam fazer parte da Green podem ser aceitos no momento. Seja por razões regulatórias ou porque não vale a pena para o cliente ou para a Green ter essa empresa como cliente. No processo de aquisição de clientes, fazemos a checagem de elegibilidade da mesma, através dos dados contidos na conta de luz do cliente. Caso a empresa não seja elegível, precisamos explicitar os motivos para tal. Caso ela seja elegível, precisamos calcular também a projeção da quantidade de CO2 que ela deixaria de emitir caso usasse energia limpa.
